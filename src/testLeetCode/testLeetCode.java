@@ -12,6 +12,11 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
+		ValidParenthesesSolution solution = new ValidParenthesesSolution();
+		String data = "{()]";
+		boolean res = solution.isValid( data );
+		if ( res ) System.out.println( "the string is valid" );
+		else System.out.println( "the string is not valid" );
 	}
 	
 //	private static List<Interval> generateIntervals( int[][] data ) {
