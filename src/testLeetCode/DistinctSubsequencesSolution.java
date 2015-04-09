@@ -19,6 +19,7 @@ public class DistinctSubsequencesSolution {
     }
 	
 	private boolean work( String template, String target ) {
+		boolean res = false;
 		if ( template.length() == 0 && target.length() != 0 ) return false;
 		else if ( target.length() == 0 ) {
 			++tempRes;
@@ -40,6 +41,7 @@ public class DistinctSubsequencesSolution {
 				}
 			}
 		}
+		return res;
 	}
 	
 }

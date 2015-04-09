@@ -3,6 +3,8 @@ package testLeetCode;
 import java.util.ArrayList;
 import java.util.List;
 
+import testLeetCode.util.ListNode;
+
 public class testLeetCode {
 	
 	public static void main(String[] args) {
@@ -12,9 +14,31 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
-		DistinctSubsequencesSolution solution = new DistinctSubsequencesSolution();
-		int res = solution.numDistinct( "rabbbit", "rabbit" );
-		System.out.println( "the answer: " + res );
+		
+		ValidPalindromeSolution solution = new ValidPalindromeSolution();
+		boolean res = solution.isPalindrome( "1a1" );
+		if ( res ) System.out.println( "valid" );
+		else System.out.println( "invalid" );
+	}
+	
+	private static ListNode generateNode( int start, int index, int length ) {
+		ListNode res = null;
+		if ( index > length ) res = null;
+		else {
+			res = new ListNode( start + index );
+			res.next = generateNode( start, index + 1, length );
+		}
+		return res;
+	}
+	
+	private static void outputList( ListNode node ) {
+		System.out.println( "the list: " );
+		ListNode temp = node;
+		while ( temp != null ) {
+			System.out.print( temp.val + "--" );
+			temp = temp.next;
+		}
+		System.out.println( "  " );
 	}
 	
 //	private static List<Interval> generateIntervals( int[][] data ) {
