@@ -1,7 +1,9 @@
 package testLeetCode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import testLeetCode.util.ListNode;
 
@@ -14,11 +16,10 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
-		
-		ValidPalindromeSolution solution = new ValidPalindromeSolution();
-		boolean res = solution.isPalindrome( "1a1" );
-		if ( res ) System.out.println( "valid" );
-		else System.out.println( "invalid" );
+		DungeonGameSolution solution = new DungeonGameSolution(); 
+		int[][] data = { {-2,-3,3}, {-5,-10,1}, {10,30,-5} };
+		int res = solution.calculateMinimumHP(data);
+		System.out.println( "the answer: " + res );
 	}
 	
 	private static ListNode generateNode( int start, int index, int length ) {
