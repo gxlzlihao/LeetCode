@@ -16,10 +16,20 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
-		DungeonGameSolution solution = new DungeonGameSolution(); 
-		int[][] data = { {-2,-3,3}, {-5,-10,1}, {10,30,-5} };
-		int res = solution.calculateMinimumHP(data);
-		System.out.println( "the answer: " + res );
+		WordLadder2Solution solution  = new WordLadder2Solution();
+		String start = "qa";
+		String end = "sq";
+		String[] data = {"si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"};
+		Set<String> dict = new HashSet<String>();
+		for ( String str : data ) {
+			dict.add( str );
+		}
+		List<List<String>> res = solution.findLadders(start, end, dict);
+		for ( List<String> array : res ) {
+			System.out.println( " " );
+			for ( String str : array )
+				System.out.print( "-" + str );
+		}
 	}
 	
 	private static ListNode generateNode( int start, int index, int length ) {

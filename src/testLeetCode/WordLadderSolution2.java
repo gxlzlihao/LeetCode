@@ -18,7 +18,7 @@ public class WordLadderSolution2 {
 		Map<String, String> prevs = new HashMap<String, String>();
 		queue.add(start);
 		used.add(start);
-		int upbound = dict.size()+1;
+		int upbound = dict.size()+2;
 		if ( dict.contains(end) ) ++upbound;
 		while ( !found && used.size() < upbound ) {
 			String str = queue.poll();
@@ -27,6 +27,7 @@ public class WordLadderSolution2 {
 				for ( int rep = 0; rep < candidate.length() && !found; ++rep )
 					if ( str.charAt(target) != candidate.charAt(rep) ) {
 						String temp = str.substring(0,target) + candidate.substring(rep,rep+1) + str.substring(target+1);
+						
 						if ( temp.equals(end) ) {
 							found = true;
 							prevs.put(temp, str);
