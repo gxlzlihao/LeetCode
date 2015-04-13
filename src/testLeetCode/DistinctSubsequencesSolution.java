@@ -1,47 +1,22 @@
 package testLeetCode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DistinctSubsequencesSolution {
 	
-	private int tempRes = 0;
-	
 	public int numDistinct(String S, String T) {
-		int res = 0;
-		if ( T.length() == 0 || S.length() == 0 || S.length() < T.length() || ( S.length() == T.length() && !S.equals(T) ) ) res = 0;
-		else if ( S.equals(T) ) res = 1;
-		else {
-			work( S, T );
-			res = tempRes;
-		}
-		return res;
-    }
-	
-	private boolean work( String template, String target ) {
-		boolean res = false;
-		if ( template.length() == 0 && target.length() != 0 ) return false;
-		else if ( target.length() == 0 ) {
-			++tempRes;
-			return true;
-		} else {
-			String t = target.substring( 0, 1 );
-			if ( template.indexOf(t) == -1 ) return false;
-			else {
-				int occur = template.indexOf( t );
-				while ( occur != -1 ) {
-					if ( occur == template.length() - 1 && target.length() > 1 ) return false;
-					else if ( target.length() == 1 ) {
-						++tempRes;
-						return true;
-					} else  if ( work( template.substring( occur + 1, template.length() ), target.substring( 1 ) ) ) {
-						occur = template.substring( occur + 1 ).indexOf( t );
-						template = template.substring( occur + 1 );
-					} else return false;
+		int[][] dp = new int[ T.length() + 1 ][ S.length() + 1 ];
+		dp[0][0] = 1;
+		for ( int i = 1; i <= T.length(); ++i )
+			dp[i][0] = 0;
+		for ( int i = 1; i <= S.length(); ++i )
+			dp[0][i] = 1;
+		for ( int i = 1; i <= T.length(); ++i )
+			for ( int j = 1; j <= S.length(); ++j )
+				if ( T.charAt( i - 1 ) == S.charAt( j - 1 ) ) {
+					dp[i][j] = dp[i-1][j-1] + dp[i][j-1];
+				} else {
+					dp[i][j] = dp[i][j-1];
 				}
-			}
-		}
-		return res;
-	}
+		return dp[T.length()][S.length()];
+    }
 	
 }
