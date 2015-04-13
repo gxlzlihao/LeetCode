@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import testLeetCode.util.ListNode;
+import testLeetCode.util.TreeNode;
 
 public class testLeetCode {
 	
@@ -16,11 +17,9 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
-		DistinctSubsequencesSolution solution = new DistinctSubsequencesSolution();
-		String S = "rabbbit";
-		String T = "rabbit";
-		int res = solution.numDistinct(S, T);
-		System.out.println( "the answer: " + res );
+		UniqueBinarySearchTrees2Solution solution = new UniqueBinarySearchTrees2Solution();
+		List<TreeNode> res = solution.generateTrees(3);
+		System.out.println( "the answer: " + res.size() );
 	}
 	
 	private static ListNode generateNode( int start, int index, int length ) {
