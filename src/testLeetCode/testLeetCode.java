@@ -17,9 +17,10 @@ public class testLeetCode {
 //		output( intervals );
 //		List<Interval> res = solution.insert(intervals, new Interval(4,9));
 //		output( res );
-		UniqueBinarySearchTrees2Solution solution = new UniqueBinarySearchTrees2Solution();
-		List<TreeNode> res = solution.generateTrees(3);
-		System.out.println( "the answer: " + res.size() );
+		LargestNumberSolution solution = new LargestNumberSolution();
+		int[] data = {0,0,0};
+		String res = solution.largestNumber(data);
+		System.out.println( "the size of the answers: " + res );
 	}
 	
 	private static ListNode generateNode( int start, int index, int length ) {
